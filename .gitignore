@@ -8,8 +8,8 @@ apps/*/dist
 # Temporary files
 tmp
 
-# Nx cache
-.nx/cache
+# Nx cache and metadata
+.nx
 
 # IDE
 .vscode
