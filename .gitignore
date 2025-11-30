@@ -1,0 +1,22 @@
+node_modules
+
+# Build outputs
+dist
+*/dist
+apps/*/dist
+
+# Temporary files
+tmp
+
+# Nx cache
+.nx/cache
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+
+# Build info
+*.tsbuildinfo
