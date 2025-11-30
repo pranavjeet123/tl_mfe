@@ -1,0 +1,34 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/talkinglands-e2e"
+    },
+    {
+      "path": "./apps/talkinglands"
+    },
+    {
+      "path": "./apps/shell-e2e"
+    },
+    {
+      "path": "./apps/shell"
+    },
+    {
+      "path": "./apps/maps-e2e"
+    },
+    {
+      "path": "./apps/maps"
+    },
+    {
+      "path": "./apps/insights-e2e"
+    },
+    {
+      "path": "./apps/insights"
+    },
+    {
+      "path": "./apps/vue-app"
+    }
+  ]
+}

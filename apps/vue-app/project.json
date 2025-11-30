@@ -1,0 +1,77 @@
+{
+  "name": "vue-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/vue-app/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/vue-app",
+        "main": "apps/vue-app/src/main.ts",
+        "index": "apps/vue-app/src/index.html",
+        "tsConfig": "apps/vue-app/tsconfig.app.json",
+        "assets": [],
+        "styles": ["apps/vue-app/src/styles.css"],
+        "rspackConfig": "apps/vue-app/rspack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "outputHashing": "all"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "vue-app:build",
+        "hmr": true,
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "vue-app:build:development"
+        },
+        "production": {
+          "buildTarget": "vue-app:build:production"
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "vue-app:build",
+        "port": 4203,
+        "spa": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/vue-app/jest.config.cts",
+        "passWithNoTests": true
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vue-tsc --build --emitDeclarationOnly",
+        "cwd": "apps/vue-app"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "vue-app",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "vue-app",
+    "targets": {
+      "serve": {
+        "options": {
+          "port": 4203
+        },
+        "dependsOn": [
+          "typecheck"
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          "^build",
+          "typecheck"
+        ]
+      }
+    }
+  },
+  "exports": {
+    "./Module": {
+      "@talkinglands/source": "./src/app/App.vue",
+      "types": "./src/app/App.vue",
+      "import": "./src/app/App.vue",
+      "default": "./src/app/App.vue"
+    }
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,213 @@
+{
+  "id": "maps",
+  "name": "maps",
+  "metaData": {
+    "name": "maps",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.0.1",
+      "buildName": "maps"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "",
+      "api": ""
+    },
+    "globalName": "maps",
+    "pluginVersion": "0.21.4",
+    "prefetchInterface": false,
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "id": "maps:leaflet",
+      "name": "leaflet",
+      "version": "1.9.4",
+      "singleton": true,
+      "requiredVersion": "^1.9.4",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_leaflet_dist_leaflet-src_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:react-dom/client",
+      "name": "react-dom/client",
+      "version": "19.2.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_react-dom_client_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:react-dom",
+      "name": "react-dom",
+      "version": "19.2.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "main.js",
+            "remoteEntry.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:react-leaflet",
+      "name": "react-leaflet",
+      "version": "5.0.0",
+      "singleton": true,
+      "requiredVersion": "^5.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_react-leaflet_lib_index_js-_37d70.js",
+            "node_modules_react-leaflet_lib_index_js-_37d71.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:react/jsx-dev-runtime",
+      "name": "react/jsx-dev-runtime",
+      "version": "19.2.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_react_jsx-dev-runtime_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:react",
+      "name": "react",
+      "version": "19.2.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "main.js",
+            "remoteEntry.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:rxjs",
+      "name": "rxjs",
+      "version": "7.8.2",
+      "singleton": true,
+      "requiredVersion": "^7.8.2",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_rxjs_dist_esm5_index_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "maps:vue",
+      "name": "vue",
+      "version": "3.5.25",
+      "singleton": true,
+      "requiredVersion": "^3.5.25",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "node_modules_vue_dist_vue_runtime_esm-bundler_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "federationContainerName": "vue_app",
+      "moduleName": "Module",
+      "alias": "vue-app",
+      "entry": "http://localhost:4203/remoteEntry.js"
+    }
+  ],
+  "exposes": [
+    {
+      "id": "maps:Module",
+      "name": "Module",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Module.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [
+            "__federation_expose_Module.css"
+          ],
+          "async": []
+        }
+      },
+      "path": "./Module"
+    }
+  ]
+}

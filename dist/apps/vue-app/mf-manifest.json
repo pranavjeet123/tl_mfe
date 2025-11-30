@@ -1,0 +1,68 @@
+{
+  "id": "vue_app",
+  "name": "vue_app",
+  "metaData": {
+    "name": "vue_app",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.0.1",
+      "buildName": "vue-app"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "",
+      "api": ""
+    },
+    "globalName": "vue_app",
+    "pluginVersion": "0.21.4",
+    "prefetchInterface": false,
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "id": "vue_app:vue",
+      "name": "vue",
+      "version": "3.5.25",
+      "singleton": true,
+      "requiredVersion": "^3.5.25",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "524.e1988974cc17f22a.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "id": "vue_app:Module",
+      "name": "Module",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Module.9d3f591f613788f1.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./Module"
+    }
+  ]
+}
