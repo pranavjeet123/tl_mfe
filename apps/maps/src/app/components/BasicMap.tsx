@@ -28,7 +28,7 @@ export function BasicMap() {
         <Marker position={position as [number, number]}>
           <Popup>
             Welcome to Bangalore! <br />
-            This is where TalkingLands operates.
+            TalkingLands.
           </Popup>
         </Marker>
       </MapContainer>

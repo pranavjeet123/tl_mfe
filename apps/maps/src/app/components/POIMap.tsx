@@ -11,6 +11,10 @@ import { MapLegend } from './MapLegend';
 import { FavoritesPanel } from './FavoritesPanel';
 import { LoadingState } from './LoadingState';
 import { ErrorState } from './ErrorState';
+import { ClusterGroup } from './ClusterGroup';
+import { HeatmapLayer } from './HeatmapLayer';
+import { ViewControls } from './ViewControls';
+import { useState } from 'react';
 
 // Fix for default markers in React Leaflet
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,8 +29,8 @@ export function POIMap() {
   const { mockData, isLoading, error } = useMockData();
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const showCandidates = useToggle(true);
-  const showPOIs = useToggle(true);
   const showFavoritesPanel = useToggle(false);
+  const [viewMode, setViewMode] = useState<'default' | 'cluster' | 'heatmap'>('default');
 
   const poiFeatures = getPOIFeatures(mockData);
   const candidateFeatures = getCandidateFeatures(mockData);
@@ -48,12 +52,20 @@ export function POIMap() {
         poiStats={poiStats}
         poiCount={poiFeatures.length}
         candidateCount={candidateFeatures.length}
-        showPOIs={showPOIs.value}
+        showPOIs={true}
         showCandidates={showCandidates.value}
         favoritesCount={favorites.size}
-        onTogglePOIs={showPOIs.toggle}
+        onTogglePOIs={() => { /* POIs are always shown, mode is controlled by ViewControls */ }}
         onToggleCandidates={showCandidates.toggle}
         onToggleFavoritesPanel={showFavoritesPanel.toggle}
+      />
+
+      {/* View Controls */}
+      <ViewControls
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+        showCandidates={showCandidates.value}
+        onToggleCandidates={showCandidates.toggle}
       />
 
       {/* Interactive Map */}
@@ -68,13 +80,23 @@ export function POIMap() {
             attribution={MAP_TILE_CONFIG.attribution}
           />
           
-          {/* Render POI markers */}
-          {showPOIs.value && poiFeatures.map((feature) => (
+          {/* Render POI markers based on view mode */}
+          {viewMode === 'default' && poiFeatures.map((feature) => (
             <POIMarker 
               key={feature.properties.id} 
               feature={feature} 
             />
           ))}
+
+          {/* Render cluster view */}
+          {viewMode === 'cluster' && (
+            <ClusterGroup features={poiFeatures} />
+          )}
+
+          {/* Render heatmap view */}
+          {viewMode === 'heatmap' && (
+            <HeatmapLayer features={poiFeatures} />
+          )}
           
           {/* Render candidate markers */}
           {showCandidates.value && candidateFeatures.map((feature) => (
@@ -89,7 +111,7 @@ export function POIMap() {
       </div>
 
       {/* Legend */}
-      <MapLegend />
+      <MapLegend viewMode={viewMode} />
 
       {/* Favorites Panel */}
       {showFavoritesPanel.value && (
