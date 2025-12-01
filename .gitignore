@@ -4,6 +4,8 @@ node_modules
 dist
 */dist
 apps/*/dist
+out-tsc
+*/out-tsc
 
 # Temporary files
 tmp
