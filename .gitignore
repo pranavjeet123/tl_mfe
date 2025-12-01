@@ -2,6 +2,8 @@ node_modules
 
 # Build outputs
 dist
+dist/
+**/dist/
 */dist
 apps/*/dist
 out-tsc
